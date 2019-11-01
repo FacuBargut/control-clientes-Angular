@@ -21,4 +21,16 @@ export class CustomersComponent implements OnInit {
     )
   }
 
+  getSaldoTotal(){
+    let saldoTotal: number = 0;
+    if(this.customers){
+      this.customers.forEach( customer => {
+        saldoTotal += customer.saldo
+      })
+    }
+
+    return saldoTotal;
+
+  }
+
 }
