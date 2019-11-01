@@ -29,7 +29,7 @@ export class CustomersComponent implements OnInit {
       })
     }
 
-    return saldoTotal;
+    return saldoTotal;  
 
   }
 
