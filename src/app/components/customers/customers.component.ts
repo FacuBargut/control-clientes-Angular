@@ -17,10 +17,10 @@ export class CustomersComponent implements OnInit {
     apellido: '',
     email: '',
     saldo: 0
-  }
+  };
 
-  @ViewChild("clienteForm") clienteForm: NgForm;
-  @ViewChild("closeButton") closeButton: ElementRef;
+  @ViewChild("clienteForm",{static: false}) clienteForm: NgForm;
+  @ViewChild("closeButton",{static: false}) closeButton: ElementRef;
 
   constructor(private customersService: ClienteService,
               private flashMessages: FlashMessagesService) { }

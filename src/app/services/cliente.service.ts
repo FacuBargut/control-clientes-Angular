@@ -59,7 +59,7 @@ export class ClienteService {
 
   deleteCustomer( customer: Customer ){
     this.customerDoc = this.angularFirestore.doc(`clientes/${customer.id}`);
-    this.customerDoc.delete(customer);
+    this.customerDoc.delete(  );
   }
 
 
