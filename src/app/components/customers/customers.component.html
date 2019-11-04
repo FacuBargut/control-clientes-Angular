@@ -79,7 +79,7 @@
                 <h5 class="modal-title">
                     Agregar cliente
                 </h5>
-                <button class="close" data-dismiss="modal">
+                <button class="close" data-dismiss="modal" #closeButton>
                     <span>&times;</span>
                 </button>
             </div>
@@ -130,7 +130,7 @@
                                #email="ngModel"
                                [(ngModel)]=customer.email
                                [ngClass]="{'is-invalid': email.errors && email.touched}"
-                               pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                               pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)"
                                required
                                minlength="2">
                                <div [hidden] = "!email.errors?.required" class="invalid-feedback">

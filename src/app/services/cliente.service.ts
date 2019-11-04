@@ -32,4 +32,24 @@ export class ClienteService {
     return this.customers
   }
 
+  addCustomer(customer:Customer){
+      this.customerCollection.add(customer);
+  }
+
+  getCustomer( id:string ){
+    this.customerDoc = this.angularFirestore.doc<Customer>(`clientes/${id}`);
+    this.customer = this.customerDoc.snapshotChanges().pipe(
+      map(
+          action => {
+            if( action.payload.exists === false){
+                return null;
+            }else{
+              const data = action.payload.data() as Customer;
+              data.id = action.payload.id;
+              return data;
+            }
+        }));
+    return this.customer;
+  }
+
 }
