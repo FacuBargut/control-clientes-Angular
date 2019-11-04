@@ -52,4 +52,15 @@ export class ClienteService {
     return this.customer;
   }
 
+  editCustomer( customer:Customer){
+    this.customerDoc = this.angularFirestore.doc(`clientes/${customer.id}`);
+    this.customerDoc.update(customer);
+  }
+
+  deleteCustomer( customer: Customer ){
+    this.customerDoc = this.angularFirestore.doc(`clientes/${customer.id}`);
+    this.customerDoc.delete(customer);
+  }
+
+
 }

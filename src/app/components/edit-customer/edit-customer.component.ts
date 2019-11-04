@@ -34,4 +34,24 @@ export class EditCustomerComponent implements OnInit {
     } )
   }
 
+  editCustomer( {value, valid}:{value: Customer, valid: boolean}){
+    if(!valid){
+      this.flashMessages.show("Por favor llena el formulario correctamente",{
+        cssClass: 'alert-danger',timeout:4000
+      });
+    }else{
+      value.id = this.id
+      //modificar el cliente
+      this.customerService.editCustomer(value);
+      this.router.navigate(['/']);
+    }
+  }
+
+  deleteCustomer(){
+    if(confirm('Seguro que desea eliminar el cliente?')){
+      this.customerService.deleteCustomer(this.customer);
+      this.router.navigate(['/']);
+    }
+  }
+
 }
