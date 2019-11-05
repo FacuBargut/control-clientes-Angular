@@ -30,8 +30,14 @@
                 </a>
             </li>
 
+            <li *ngIf="!loggedInUser" class="nav-item">
+                    <a routerLink="/register" class="nav-link" routerLinkActive="router-link-active">
+                        <i style="margin-right: 5px;" class="fas fa-sign-in-alt"></i>Registrarse
+                    </a>
+                </li>
+
             <li *ngIf="loggedInUser" class="nav-item">
-                    <a style="cursor:pointer" (click)="logOut()" class="nav-link">
+                    <a style="cursor:pointer" (click)="logOut()" class="nav-link" routerLinkActive="router-link-active">
                         <i class="fas fa-user-times"></i>Salir
                     </a>
                 </li>
